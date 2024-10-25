@@ -37,12 +37,9 @@ def fv_mc_estimation(states : list[State], actions: list[Action], rewards: list[
         # print("sa: ", (*s, a))
         # print("returns[i]: ", returns[i])
         if (*s, a) not in visited_sa_returns:
-            visited_sa_returns[(*s, a)] = [returns[i]]
-        else:
-            visited_sa_returns[(*s, a)].append(returns[i])
+            visited_sa_returns[(*s, a)] = returns[i]
+
     # print("visited_sa_returns: ", len(visited_sa_returns))
-    for sa in visited_sa_returns:
-        visited_sa_returns[sa] = np.mean(visited_sa_returns[sa])
     # --------------------------------
     # print("visited_sa_returns: ", len(visited_sa_returns), visited_sa_returns.items())  
 
